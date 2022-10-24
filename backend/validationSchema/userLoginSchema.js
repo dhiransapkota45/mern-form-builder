@@ -1,0 +1,13 @@
+const yup = require("yup")
+
+const validateUserLoginSchema = yup.object({
+    body: yup.object({
+      email: yup.string().email().required(),
+      password: yup
+        .string()
+        .required("Password is required")
+        .min(8, "Password is too short - should be 8 chars minimum.")
+    }),
+  });
+  
+module.exports = validateUserLoginSchema 
